@@ -5,7 +5,6 @@ package models;
  * User: Brayden
  * Date: 5/31/13
  * Time: 9:29 PM
- * To change this template use File | Settings | File Templates.
  */
 public class Attendance {
 
