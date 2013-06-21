@@ -3,11 +3,10 @@ package models;
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 5/31/13
- * Time: 9:24 PM
- * To change this template use File | Settings | File Templates.
+ * Date: 6/18/13
+ * Time: 6:07 PM
  */
-public class School {
+public class EmergencyContact {
 
     // ===========================================================
     // Constants
@@ -17,11 +16,19 @@ public class School {
     // Fields
     // ===========================================================
 
-    public String schoolName;
+    public Name firstName;
+    public Name middleName;
+    public Name lastName;
 
-    public int termsPerYear;
+    public String relationToStudent;
 
-    public int classesPerTerm;
+    public String primaryPhoneNumber;
+    public String secondaryPhoneNumber;
+    public String tertiaryPhoneNumber;
+
+    public String email;
+
+    public Student student;
 
     // ===========================================================
     // Constructors

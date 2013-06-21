@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
@@ -7,7 +9,7 @@ package models;
  * Time: 9:24 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Class {
+public class Course {
 
     // ===========================================================
     // Constants
@@ -16,6 +18,14 @@ public class Class {
     // ===========================================================
     // Fields
     // ===========================================================
+
+    public List<Teacher> courseTeachers;
+    public List<Assignment> courseAssignments;
+
+    public School courseSchool;
+
+    public List<Fee> courseFees;
+
 
     // ===========================================================
     // Constructors

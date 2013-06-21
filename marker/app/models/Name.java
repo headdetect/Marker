@@ -3,11 +3,10 @@ package models;
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 5/31/13
- * Time: 9:24 PM
- * To change this template use File | Settings | File Templates.
+ * Date: 6/18/13
+ * Time: 5:57 PM
  */
-public class School {
+public class Name {
 
     // ===========================================================
     // Constants
@@ -17,15 +16,23 @@ public class School {
     // Fields
     // ===========================================================
 
-    public String schoolName;
+    public String value;
 
-    public int termsPerYear;
-
-    public int classesPerTerm;
+    public int ID;
 
     // ===========================================================
     // Constructors
     // ===========================================================
+
+    public Name()
+    {
+        value = "";
+    }
+
+    public Name(String value)
+    {
+        this.value = value;
+    }
 
     // ===========================================================
     // Getters & Setters
@@ -34,6 +41,12 @@ public class School {
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
+
+    @Override
+    public String toString()
+    {
+        return value;
+    }
 
     // ===========================================================
     // Methods

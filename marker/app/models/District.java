@@ -1,13 +1,14 @@
 package models;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 5/31/13
- * Time: 9:24 PM
- * To change this template use File | Settings | File Templates.
+ * Date: 6/18/13
+ * Time: 6:19 PM
  */
-public class School {
+public class District {
 
     // ===========================================================
     // Constants
@@ -17,11 +18,14 @@ public class School {
     // Fields
     // ===========================================================
 
-    public String schoolName;
+    public Name name;
 
-    public int termsPerYear;
+    public List<School> schools;
 
-    public int classesPerTerm;
+    public List<Address> districtOffices;
+
+
+    //TODO: add all info that a district office has.
 
     // ===========================================================
     // Constructors

@@ -1,27 +1,26 @@
 package models;
 
+import play.data.Form;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 5/31/13
- * Time: 9:24 PM
- * To change this template use File | Settings | File Templates.
+ * Date: 6/18/13
+ * Time: 7:09 PM
  */
-public class School {
+public class LoginData {
 
     // ===========================================================
     // Constants
     // ===========================================================
 
+
     // ===========================================================
     // Fields
     // ===========================================================
 
-    public String schoolName;
-
-    public int termsPerYear;
-
-    public int classesPerTerm;
+    public String username;
+    public String password;
 
     // ===========================================================
     // Constructors
