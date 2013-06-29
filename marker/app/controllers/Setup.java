@@ -1,18 +1,17 @@
-package models;
+package controllers;
 
-import play.db.ebean.Model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import play.data.Form;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.setup;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 6/18/13
- * Time: 5:57 PM
+ * Date: 6/28/13
+ * Time: 7:34 PM
  */
-@Entity
-public class Name extends Model {
+public class Setup extends Controller {
 
     // ===========================================================
     // Constants
@@ -22,24 +21,9 @@ public class Name extends Model {
     // Fields
     // ===========================================================
 
-    public String value;
-
-    @Id
-    public long ID;
-
     // ===========================================================
     // Constructors
     // ===========================================================
-
-    public Name()
-    {
-        value = "";
-    }
-
-    public Name(String value)
-    {
-        this.value = value;
-    }
 
     // ===========================================================
     // Getters & Setters
@@ -49,15 +33,19 @@ public class Name extends Model {
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
-    @Override
-    public String toString()
-    {
-        return value;
-    }
-
     // ===========================================================
     // Methods
     // ===========================================================
+
+    public static Result index() {
+        Form<SetupForm> form = Form.form(SetupForm.class);
+
+        return ok(views.html.setup.render(form));
+    }
+
+    public static Result submit() {
+        return ok();
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

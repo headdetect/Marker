@@ -1,18 +1,12 @@
-package models;
-
-import play.db.ebean.Model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+package controllers;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 6/18/13
- * Time: 5:57 PM
+ * Date: 6/28/13
+ * Time: 8:33 PM
  */
-@Entity
-public class Name extends Model {
+public class SetupForm {
 
     // ===========================================================
     // Constants
@@ -22,24 +16,9 @@ public class Name extends Model {
     // Fields
     // ===========================================================
 
-    public String value;
-
-    @Id
-    public long ID;
-
     // ===========================================================
     // Constructors
     // ===========================================================
-
-    public Name()
-    {
-        value = "";
-    }
-
-    public Name(String value)
-    {
-        this.value = value;
-    }
 
     // ===========================================================
     // Getters & Setters
@@ -48,12 +27,6 @@ public class Name extends Model {
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
-
-    @Override
-    public String toString()
-    {
-        return value;
-    }
 
     // ===========================================================
     // Methods

@@ -1,4 +1,4 @@
-package models;
+package controllers;
 
 import play.data.Form;
 
@@ -8,7 +8,7 @@ import play.data.Form;
  * Date: 6/18/13
  * Time: 7:09 PM
  */
-public class LoginData {
+public class LoginForm {
 
     // ===========================================================
     // Constants

@@ -1,5 +1,10 @@
 package models;
 
+import play.db.ebean.Model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -8,11 +13,15 @@ import java.util.List;
  * Date: 6/18/13
  * Time: 6:19 PM
  */
-public class District {
+@Entity
+@Table(name = "o_district")
+public class District extends Model {
 
     // ===========================================================
     // Constants
     // ===========================================================
+
+    public static Model.Finder<Long, District> find = new Model.Finder<Long, District>(Long.class, District.class);
 
     // ===========================================================
     // Fields
@@ -23,6 +32,9 @@ public class District {
     public List<School> schools;
 
     public List<Address> districtOffices;
+
+    @Id
+    public long ID;
 
 
     //TODO: add all info that a district office has.
