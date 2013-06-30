@@ -4,6 +4,7 @@ import play.db.ebean.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * Time: 5:57 PM
  */
 @Entity
+@Table(name="o_names")
 public class Name extends Model {
 
     // ===========================================================

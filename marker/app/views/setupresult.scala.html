@@ -1,0 +1,37 @@
+@(setupForm: SetupForm, errors: String)
+
+@main("Setup · Marker") {
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/setup.css")' />
+
+    <div data-spy="scroll" data-target=".marker-setup-sidebar">
+
+            <!--
+            Navbar on the side ============================================== -->
+
+        <div class="row">
+            <div class="span8 setup-body">
+
+                @if(errors.trim().length > 0) {
+                    <legend>Something bad happened when trying to set up.</legend>
+                    <pre>@errors</pre>
+                } else {
+                    <legend>Ready to go.</legend>
+                    <p>Marker is all finished setting up. To login to the admin panel click <a href="/">here</a>
+                        or click continue below.</p>
+                    <p>Your temporary username is <strong>@setupForm.adminUsername</strong>
+                        and your password is <strong>@setupForm.adminPass</strong></p>
+                    <p>Be sure to delete this user once you enter the admin panel</p>
+                }
+
+                <div class="bottom-link-container">
+                    <a class="bottom-link" href="#">Help Documents</a>
+                    <a class="bottom-link" href="#">Contact us</a>
+                    <a class="bottom-link" href="#">Forums</a>
+                </div>
+
+                <a href="/" class="btn btn-primary btn-large pull-right">Continue</a>
+
+            </div>
+        </div>
+    </div>
+}

@@ -1,46 +1,94 @@
-@(setupForm: Form[SetupForm])
+@(setupForm: Form[SetupForm], errors: String)
+@import markerhelper.twitterBootstrap2._
+
 @main("Setup · Marker") {
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/setup.css")' />
 
     <div data-spy="scroll" data-target=".marker-setup-sidebar">
 
-        <!--
+            <!--
             Navbar on the side ============================================== -->
 
         <div class="row">
             <div class="span3 marker-setup-sidebar">
-                <ul class="nav nav-list marker-setup-nav">
-                    <li><a href="#district"><i class="icon-chevron-right"></i> District</a></li>
-                    <li><a href="#schools"><i class="icon-chevron-right"></i> Schools</a></li>
+                <ul class="nav nav-list marker-setup-nav affix">
                     <li><a href="#database"><i class="icon-chevron-right"></i> Database</a></li>
                     <li><a href="#server"><i class="icon-chevron-right"></i> Server</a></li>
+                    <li><a href="#district"><i class="icon-chevron-right"></i> District</a></li>
                 </ul>
             </div>
             <div class="span8 setup-body">
-                <h2 id="district">District</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                </p>
+            @if(errors.trim().length > 0) {
+                <div class="alert alert-error">@errors</div>
+            }
+            @helper.form(action = routes.Setup.submit()) {
+                <fieldset>
+                    <legend id="database">Database</legend>
+                    @helper.inputText(
+                        setupForm("dbName"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "Database Name",
+                        '_help           -> "Database must already be created."
+                    )
 
-                <h2>Setup more stuff</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                </p>
 
-                <h2>Setup nothing</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate egestas iaculis. Aenean rhoncus sem ac erat tristique, id dapibus metus feugiat. Sed auctor vehicula odio. Vestibulum hendrerit fringilla turpis, a vulputate ipsum ultrices aliquam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec bibendum dignissim sem a pharetra. Donec ullamcorper ante tincidunt ligula dignissim molestie. Donec vel eleifend urna. Pellentesque imperdiet purus velit, sit amet iaculis lectus congue elementum. Nulla nec libero vitae odio dictum porta in ut est. Proin accumsan et dui eu fringilla. Nullam sed massa porttitor, feugiat dolor congue, porttitor nisl. Pellentesque lobortis arcu ut porttitor pharetra. Etiam eu sodales nulla. Maecenas a lectus in velit varius dictum sed in enim. Fusce varius urna vel orci sagittis porta.
-                </p>
+                    @helper.inputText(
+                        setupForm("username"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "Database Username",
+                        '_help           -> "Root user is NOT recommended"
+                    )
 
+
+                    @helper.inputText(
+                        setupForm("password"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "Database Password"
+                    )
+                </fieldset>
+
+                <fieldset>
+                    <legend id="server">Server</legend>
+                    <p>This user should be deleted once Marker is setup</p>
+                    @helper.inputText(
+                        setupForm("adminUsername"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "Temp Admin Username"
+                    )
+
+
+                    @helper.inputText(
+                        setupForm("adminPass"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "Temp Admin Password"
+                    )
+
+
+                </fieldset>
+
+
+                <fieldset>
+                    <legend id="district">District</legend>
+                    @helper.inputText(
+                        setupForm("districtName"),
+                        '_label         -> "",
+                        'class          -> "input-block-level",
+                        'placeholder    -> "District Name",
+                        '_help          -> "This can be changed later"
+                    )
+
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary btn-large pull-right">Setup</button>
+            }
             </div>
         </div>
-
-
     </div>
+    <script>
+    </script>
 }

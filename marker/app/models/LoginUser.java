@@ -1,45 +1,50 @@
 package models;
 
+import play.data.format.Formats;
 import play.db.ebean.Model;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Brayden
- * Date: 6/18/13
- * Time: 6:19 PM
+ * Date: 6/29/13
+ * Time: 9:17 PM
  */
 @Entity
-@Table(name = "o_district")
-public class District extends Model {
+@Table(name = "o_logins")
+public class LoginUser extends Model {
 
     // ===========================================================
     // Constants
     // ===========================================================
 
-    public static Model.Finder<Long, District> find = new Model.Finder<Long, District>(Long.class, District.class);
+    public static final Model.Finder<Long, LoginUser> finder = new Model.Finder<Long, LoginUser>(Long.class, LoginUser.class);
 
     // ===========================================================
     // Fields
     // ===========================================================
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    public Name name;
+    public String userName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<School> schools;
+    public String passHash;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<Address> districtOffices;
+    public int loginAccess;
+
+    @Transient
+    public LoginAccess getLoginAccess() {
+        return LoginAccess.values()[loginAccess];
+    }
 
     @Id
-    public long ID;
+    public Long Id;
 
-
-    //TODO: add all info that a district office has.
+    @Formats.DateTime(pattern = "MM/dd/yyyy hh:mm tt")
+    public Date lastLoggedIn = new Date();
 
     // ===========================================================
     // Constructors
@@ -60,5 +65,13 @@ public class District extends Model {
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+
+    enum LoginAccess {
+        Full,
+        Staff,
+        Teacher,
+        Parent,
+        Student,
+    }
 
 }

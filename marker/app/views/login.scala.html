@@ -4,11 +4,11 @@
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
     @helper.form(action = routes.Login.submit(), 'class -> "form-signin") {
         <div class="form-signin-top">
-            !-- TODO: Put image here -->
+            <!-- TODO: Put image here -->
             <h4 class="form-signin-heading">@district.name.value</h4>
             @if(message.trim().length > 0) {
                 <div class="alert alert-error">
-                    @message.trim();
+                    @message.trim()
                 </div>
             }
         </div>
