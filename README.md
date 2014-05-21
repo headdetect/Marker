@@ -1,3 +1,1 @@
-This repo is no longer being used.
-It has been moved to -> https://bitbucket.org/headdetect/marker
-Enjoy.
+No longer being updated. As of.....last year? But I horde my code. so. here it is...
